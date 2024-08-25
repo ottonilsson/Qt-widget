@@ -1,5 +1,5 @@
 # === Qt widget ===
-# Simple Qt widget app
+# Simple Qt python app
 # Author: Otto Nilsson
 # Created: 2024-08
 

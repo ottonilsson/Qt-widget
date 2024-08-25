@@ -1,0 +1,3 @@
+Simple Qt Widget to be used as a template or just for reference.
+Main window is a QMainWindow with a QGridLayout layout.
+About window is a QDialog with nested QVBoxLayout and QHBoxLayout layouts.

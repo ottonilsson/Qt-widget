@@ -205,6 +205,8 @@ class SettingsWin(QDialog):
         self.parent = parent
         self.finished.connect(self.save)
 
+        self.rb_group = QButtonGroup()
+
 
         ## Widgets ##
         self.label1 = QLabel()
@@ -218,7 +220,6 @@ class SettingsWin(QDialog):
         self.cb_enable_modifier.setChecked(settings.enable_modifier)
         
         # Output modifiers
-        self.rb_group = QButtonGroup()
 
         self.rb_default = QRadioButton("None")
         self.rb_group.addButton(self.rb_default)

@@ -13,6 +13,7 @@ from PySide6.QtWidgets import (QApplication, QWidget, QMainWindow, QDialog, QMes
                                 QLabel, QPushButton, QLineEdit, QTextEdit, QCheckBox, QRadioButton, QButtonGroup)
 from PySide6.QtGui import QIcon, QFont
 import logging
+import data.app_data
 
 
 ### Logging ###
@@ -32,10 +33,6 @@ class Settings:
 
 
 ### Global variables ###
-app_name = "Qt widget"
-app_ver = "1.0"
-author = "Otto Nilsson"
-date = "2024-08"
 app_icon = r'./assets/Qt_icon_256x256.png'
 settings = Settings()
 
@@ -44,7 +41,7 @@ settings = Settings()
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Qt widget")
+        self.setWindowTitle(data.app_data.app_name)
         self.setMinimumSize(400, 500)
 
 
@@ -56,7 +53,7 @@ class MainWindow(QMainWindow):
         # Menu actions
         self.settings_action = self.file_menu.addAction("Settings", self.create_settings_win)
         self.exit_action = self.file_menu.addAction("Exit", self.close)
-        self.about_action = self.about_menu.addAction(f"About {app_name}", self.create_about_win)
+        self.about_action = self.about_menu.addAction(f"About {data.app_data.app_name}", self.create_about_win)
 
 
         ## Widgets ##
@@ -288,7 +285,7 @@ class AboutWin(QDialog):
         ## Widgets ##
         # Heading
         self.label1 = QLabel()
-        self.label1.setText(app_name)
+        self.label1.setText(data.app_data.app_name)
         self.label1.setAlignment(Qt.AlignCenter)
         self.font = QFont()
         self.font.setPointSize(16)
@@ -297,12 +294,12 @@ class AboutWin(QDialog):
 
         # Version label
         self.label2 = QLabel()
-        self.label2.setText(f'v {app_ver}')
+        self.label2.setText(f'v {data.app_data.app_ver}')
         self.label2.setAlignment(Qt.AlignCenter)
 
         # Sub heading
         self.label3 = QLabel()
-        self.label3.setText(f'{author}\n{date}')
+        self.label3.setText(f'{data.app_data.author}\n{data.app_data.year}')
         self.label3.setAlignment(Qt.AlignCenter)
 
         # Text field
@@ -330,7 +327,7 @@ class AboutWin(QDialog):
 
 ### App entry point ###
 if __name__ == "__main__":
-    logging.info(f'{app_name} - v {app_ver}')
+    logging.info(f'{data.app_data.app_name} - v {data.app_data.app_ver}')
     logging.info('App started')
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon(app_icon))

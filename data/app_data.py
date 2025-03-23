@@ -1,0 +1,6 @@
+app_name = "Qt Widget"
+app_ver = "1.0"
+author = "Otto Nilsson"
+company = ""
+country = "Sweden"
+year = "2025"
